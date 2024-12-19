@@ -9,26 +9,31 @@ document.addEventListener('DOMContentLoaded', function () {
         return response.json();
     })
     .then(employees => {
-        const employeeList = document.getElementById('employees_content'); // Контейнер для карточек сотрудников
+        const employeeList = document.getElementById('employees_content'); // Контейнер для карток співробітників
 
-        // Очистить контейнер перед добавлением новых карточек
+        // Очистити контейнер перед додаванням нових карток
         employeeList.innerHTML = '';
 
-        // Создаем карточки сотрудников
+        // Створюємо картки співробітників
         employees.forEach(employee => {
             const employeeCard = document.createElement('a');
             employeeCard.classList.add('employee-card');
             employeeCard.href = `/person/person.html?emp_id=${employee.emp_id}`;
 
-            var employeeDep = '';
-            if(employee.dep_id === null){
-                employeeDep = `<p><strong>Підпорядковується:</strong> ${employee.beloning_dep}</p>`;
-            } else{
-                employeeDep = `<p><strong>Голова:</strong> ${employee.dep_id} відділу`;
+            let employeeDep = '';
+            // Перевірка на підпорядкування або відділ
+            if (employee.dep_name) {
+                if (employee.dep_name.startsWith('Підпорядковується')) {
+                    employeeDep = `<p><strong>${employee.dep_name}</strong></p>`; // Виводимо підпорядкування
+                } else {
+                    employeeDep = `<p><strong>Голова:</strong> ${employee.dep_name} відділу</p>`; // Виводимо відділ
+                }
+            } else {
+                employeeDep = `<p><strong>Підпорядковується:</strong> ${employee.beloning_dep}</p>`; // Якщо немає відділу
             }
-            
+
             employeeCard.innerHTML = `
-                <img src="${employee.image}">
+                <img src="${employee.image}" alt="${employee.name} ${employee.surname}">
                 <h3>${employee.name} ${employee.surname}</h3>
                 <p><strong>Посада:</strong> ${employee.position}</p>
                 <p><strong>Дата народження:</strong> ${employee.dob}</p>
@@ -39,13 +44,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${employeeDep}
             `;
 
-            // Добавляем карточку сотрудника в список
+            // Додаємо картку співробітника до списку
             employeeList.appendChild(employeeCard);
         });
     })
     .catch(error => {
         console.error('Ошибка:', error);
     });
-
-
 });
