@@ -1,0 +1,146 @@
+
+.wrapper-person {
+    min-height: 500px;
+    width: 95%;
+    margin: auto;
+    background-color: var(--wrapper-bg-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Стиль для секцій */
+#employee_details, #employee-perfomance, #employee-vocation {
+    max-width: 45%;
+    min-width: 400px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Зображення профілю */
+#employee_details img {
+    display: block;
+    max-width: 250px; /* Максимальна ширина */
+    width: 100%; /* Адаптація до контейнера */
+    height: auto; /* Збереження пропорцій */
+    margin: 0 auto 15px;
+    border-radius: 10%; /* Закруглені кути */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    object-fit: cover; /* Забезпечує якісне масштабування */
+}
+
+/* Ім'я співробітника */
+#employee_details h3 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Інформація про співробітника */
+#employee_details p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Виділення ключових даних */
+#employee_details p strong {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Посилання на email */
+#employee_details a {
+    color: var(--orange-leather);
+    text-decoration: none;
+}
+
+#employee_details a:hover {
+    color: var(--footer-a-color-hover);
+}
+
+/* Відступи для полів */
+#employee_details p + p {
+    margin-top: 10px;
+}
+
+
+
+/* Заголовки секцій */
+#employee-perfomance h4, #employee-vocation h4 {
+    font-size: 1.8em;
+    color: #333;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Список інформації */
+#employee-perfomance ul, #employee-vocation ul {
+    list-style: none;
+    padding: 0;
+}
+
+#employee-perfomance ul li, #employee-vocation ul li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#employee-perfomance ul li p, #employee-vocation ul li p {
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* Виділення ключових даних */
+#employee-perfomance ul li p strong, #employee-vocation ul li p strong {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .wrapper-person {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #employee_details {
+        padding: 15px;
+    }
+
+    #employee_details h3 {
+        font-size: 20px;
+    }
+
+    #employee_details p {
+        font-size: 14px;
+    }
+
+    #employee-perfomance, #employee-vocation {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #employee-perfomance h4, #employee-vocation h4 {
+        font-size: 1.5em;
+    }
+
+    #employee-perfomance ul li p, #employee-vocation ul li p {
+        font-size: 14px;
+    }
+}

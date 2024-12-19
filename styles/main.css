@@ -1,0 +1,150 @@
+* {
+
+    --dark-grafit-color: #1b1b1b;
+    --dark-grey-color: #555151;
+    --light-grey-color: #9f9689;
+    --brown-color: #623f2b;
+    --orange-leather: #b76e2d;
+    --light-color: #fff1e2;
+
+
+    --main-bg-color: var(--dark-grey-color);
+    --nav-bg-color: var(--orange-leather);
+    --nav-color: #123;
+    --nav-bgcolor-hover: var(--brown-color);
+    --nav-a-color: var(--light-color);
+    --nav-a-color-hover: var(--light-color);
+
+    --wrapper-bg-color: #bdbdbd;
+
+
+    --footer-bg-color: var(--dark-grafit-color);
+    --footer-text-color: white;
+    
+    --footer-a-color: cornsilk;
+    --footer-a-color-hover: darkred;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--brown-color) var(--dark-grafit-color) ;
+}
+
+/* Стилі для всього тіла */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color); /* Доданий фоновий колір */
+    color: #333; /* Контрастний колір тексту */
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+/* Стилі для меню */
+.navigation {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: var(--nav-bg-color);
+    font-size: 23px;
+}
+
+/* Список меню */
+.nav_menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* Посилання меню */
+.nav_menu a {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: var(--nav-a-color);
+    font-size: .99em;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Стиль при наведенні */
+.nav_menu a:hover {
+    background-color: var(--nav-bgcolor-hover);
+    color: var(--nav-a-color-hover);
+}
+
+.menu-toggle {
+    display: none; /* Скрыто на больших экранах */
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Без границ */
+    font-size: 2em; /* Размер шрифта для кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    color: #34495e; /* Цвет кнопки */
+}
+
+.wrapper{
+    min-height: 1000px;
+    width: 95%;
+    margin: auto;
+    background-color: var(--wrapper-bg-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+.filter{
+    margin-left: 5%;
+}
+
+footer{
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    margin: 0;
+    min-height: 200px;
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 100px;
+    text-align: center;
+}
+
+footer a{
+    color: var(--footer-a-color);
+}
+footer a:hover{
+    color: var(--footer-a-color-hover);
+    
+}
+
+@media (max-width: 767px) {
+    .navigation{
+        width: 100%;
+    }
+    .menu-toggle {
+        display: block; /* Показывает кнопку для открытия меню на маленьких экранах */
+        padding-right: 20px;
+    }
+}
+
+@media(hover: hover){
+    
+    .main-nav a:hover {
+        color: #718daa;
+    }
+    
+    
+}
+
+@media(hover: none){
+    .main-nav a:active {
+        color: #718daa;
+    }
+    
+    
+}

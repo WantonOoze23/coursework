@@ -1,0 +1,30 @@
+.project-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: calc(33.333% - 32px); /* Три картки в рядок */
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.project-card h3 {
+    margin: 0;
+    color: #333;
+}
+
+
+@media (max-width: 1199px) and (min-width: 768px) {
+    .project-card {
+        width: calc(50% - 32px); /* Дві картки в рядок */
+    }
+}
+
+@media (max-width: 767px) { 
+    .project-card {
+        width: calc(100% - 32px); /* Одна картка в рядок */
+    }
+}
