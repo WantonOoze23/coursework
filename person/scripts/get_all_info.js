@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <p><strong>Тип:</strong> ${item.type}</p>
                                     <p><strong>Початок:</strong> ${item.beginning}</p>
                                     <p><strong>Кінець:</strong> ${item.end}</p>
-                                    <p><strong>Сума:</strong> ${item.amount} днів</p>
+                                    <p><strong>Сумарно:</strong> ${item.amount} днів</p>
                                 </li>
                             `).join('')}
                         </ul>
