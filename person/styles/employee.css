@@ -28,9 +28,9 @@
 /* Зображення профілю */
 #employee_details img {
     display: block;
-    max-width: 250px; /* Максимальна ширина */
-    width: 100%; /* Адаптація до контейнера */
-    height: auto; /* Збереження пропорцій */
+    max-width: 100%; /* Максимальна ширина */
+    width: auto; /* Адаптація до контейнера */
+    height: 250px; /* Фіксована висота */
     margin: 0 auto 15px;
     border-radius: 10%; /* Закруглені кути */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

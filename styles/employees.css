@@ -26,9 +26,8 @@
     color: #333;
 }
 .employee-card img{
-    min-height: 250px;
-    width: 50%;
-    height: auto;
+    height: 300px;
+    width: auto;
     margin-right: 10px;
 }
 
