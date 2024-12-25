@@ -1,3 +1,14 @@
+<?php
+session_start(); // Стартуем сессию
+
+// Проверяем, авторизован ли пользователь
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // Если нет, перенаправляем на страницу логина
+    header("Location: /manager/login.html");
+    exit; // Завершаем выполнение скрипта
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ua-UA">
 <head>
@@ -21,26 +32,20 @@
                 <li><a href="../performance.html">Продуктивність</a></li>
                 <li><a href="../positions.html">Посади</a></li>
                 <li><a href="../projects.html">Проєкти</a></li>
-                <li><a href="../manager/manager.html">Кабінет</a></li>
+                <li><a href="../manager/login.html">Кабінет</a></li>
             </ul>
         </div>
     </section>
 
 
-    <section class = "wrapper-manager">
+    <section class="wrapper-manager">
+        <h1>Добро пожаловать, <?php echo $_SESSION['username']; ?>!</h1>
         
+        <!-- Кнопка выхода -->
+        <form action="../api/logout.php" method="POST">
+            <button type="submit">Вийти</button>
+        </form>
     </section>
-
-
-
-    <footer>
-        <ul>
-            <li>Номер телефону: <a href="tel:+380951594195">+380951594195</a></li>
-            <li>Наша пошта <a href="mailto:mine16978@gmail.com">mine16978@gmail.com</a></li>
-        </ul>
-        
-        <h2>Всі права захищені &copy;</h2>
-    </footer>
 
     <script src="script/navigation.js?v=1.0"></script>
 </body>

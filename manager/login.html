@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ua-UA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/main.css?v=1.0">
+    <link rel="stylesheet" href="manager_styles/manager.css">
+
+
+    <title>Document</title>
+
+</head>
+<body>
+    <section class="navigation">
+        <div id="nav_tools">
+            <ul class="nav_menu">
+                <li><a href="../index.html">Головна</a></li>
+                <li><a href="../employees.html">Робітники</a></li>
+                <li><a href="../departments.html">Відділи</a></li>
+                <li><a href="../performance.html">Продуктивність</a></li>
+                <li><a href="../positions.html">Посади</a></li>
+                <li><a href="../projects.html">Проєкти</a></li>
+                <li><a href="../manager/login.html">Кабінет</a></li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section class = "wrapper-login">
+        <h1 id="aut_text">Авторизація</h1>
+        <section id="loginSection">
+            
+            <form id="loginForm" method="POST">
+                <h2>Увійти</h2>
+                <label for="username">Користувач:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="submit">Увійти</button>
+            </form>
+        </section>
+    </section>
+
+    <script src="../script/navigation.js?v=1.0"></script>
+    <script src="manager_script/login.js"></script>
+</body>
+</html>

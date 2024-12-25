@@ -31,10 +31,10 @@
     margin-right: 10px;
 }
 
-.employee-content a, a:visited, a:focus, a:active, a:link {
+.wrapper a, .wrapper a:visited, a:focus, a:active, a:link {
     outline: none; /* Убирает контур при фокусе */
     text-decoration: none; /* Убирает подчеркивание при наведении */
-    color: inherit; /* Устанавливает цвет, который унаследован от родителя */
+    color: inherit; 
 }
 
 .employee-card a{
@@ -44,6 +44,8 @@
 .employee-card a:hover{
     color: var(--footer-a-color-hover);
 }
+
+
 
 @media (max-width: 1199px) and (min-width: 768px)  {
     .employee-card {
