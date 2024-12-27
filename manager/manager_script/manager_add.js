@@ -82,4 +82,167 @@ document.addEventListener("DOMContentLoaded", () => {
         showAddForm(vacationAdd); // Відображаємо форму для Відпочинку
         setActiveButton(vacationButton); // Підсвічуємо кнопку Відпочинок
     });
+
+    // Додавання функціоналу для форми співробітника
+    const addEmployeeForm = document.querySelector("#employee_add form");
+    const addDepartmentForm = document.querySelector("#department_add form");
+    const addPerformanceForm = document.querySelector("#performance_add form");
+    const addPositionForm = document.querySelector("#position_add form");
+    const addProjectForm = document.querySelector("#project_add form");
+    const addVacationForm = document.querySelector("#vacation_add form");
+
+    if (addEmployeeForm) {
+        addEmployeeForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addEmployeeForm);
+
+            try {
+                const response = await fetch("../api/manager/add_employee.php", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Співробітника успішно додано!");
+                    addEmployeeForm.reset();
+                } else {
+                    alert(`Помилка: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Сталася помилка:", error);
+                alert("Не вдалося додати співробітника. Спробуйте ще раз.");
+            }
+        });
+    }
+
+    if (addDepartmentForm) {
+        addDepartmentForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addDepartmentForm);
+
+            try {
+                const response = await fetch("../api/manager/add_department.php", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Співробітника успішно додано!");
+                    addDepartmentForm.reset();
+                } else {
+                    alert(`Помилка: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Сталася помилка:", error);
+                alert("Не вдалося додати відділ. Спробуйте ще раз.");
+            }
+        });
+    }
+
+
+    /*if (addPerformanceForm) {
+        addPerformanceForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addPerformanceForm);
+
+            try {
+                const response = await fetch("../api/manager/add_performance.php", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Співробітника успішно додано!");
+                    addPerformanceForm.reset();
+                } else {
+                    alert(`Помилка: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Сталася помилка:", error);
+                alert("Не вдалося додати співробітника. Спробуйте ще раз.");
+            }
+        });
+    }
+
+    if (addPositionForm) {
+        addPositionForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addPositionForm);
+
+            try {
+                const response = await fetch("../api/manager/add_position.php", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Співробітника успішно додано!");
+                    addPositionForm.reset();
+                } else {
+                    alert(`Помилка: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Сталася помилка:", error);
+                alert("Не вдалося додати співробітника. Спробуйте ще раз.");
+            }
+        });
+    }
+    if (addProjectForm) {
+        addProjectForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addProjectForm);
+
+            try {
+                const response = await fetch("../api/manager/add_vacation.php", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Співробітника успішно додано!");
+                    addProjectForm.reset();
+                } else {
+                    alert(`Помилка: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Сталася помилка:", error);
+                alert("Не вдалося додати співробітника. Спробуйте ще раз.");
+            }
+        });
+    }
+    if (addVacationForm) {
+        addVacationForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addVacationForm);
+
+            try {
+                const response = await fetch("../api/manager/add_employee.php", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Співробітника успішно додано!");
+                    addVacationForm.reset();
+                } else {
+                    alert(`Помилка: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Сталася помилка:", error);
+                alert("Не вдалося додати співробітника. Спробуйте ще раз.");
+            }
+        });
+    }*/
 });
