@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             positionCard.innerHTML = `
                 <h3><strong>Назва посади:</strong> ${position.position}</h3>
-                <p><strong>Опис:</strong> ${position.description} грн</p>
-                <p><strong>Підпорядковується:</strong> ${position.responsibilities}</
+                <p><strong>Відповідальність:</strong> ${position.description} грн</p>
+                <p><strong>Опис:</strong> ${position.responsibilities}</
 
             `;
 

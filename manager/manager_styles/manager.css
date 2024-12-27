@@ -1,8 +1,26 @@
 body {
-    background: linear-gradient(135deg, var(--light-color), #a777e3);
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+button {
+    cursor: pointer;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.5em;
+}
+
+button:hover {
+    background-color: var(--dark-grafit-color);
+    color: var(--light-color);
+}
+
+button.active {
+    background-color: var(--footer-a-color-hover); /* Зелений колір для активної кнопки */
+    color: white;
 }
 
 .wrapper-login {
@@ -65,3 +83,32 @@ h2 {
 #aut_text{
     text-align: center;
 }
+
+.wrapper-manager{
+    width: 95%;
+    margin: 30px auto;
+    background-color: var(--wrapper-bg-color);
+    border-radius: 8px;
+    padding-bottom: 10px;
+}
+
+.manager-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+
+.choice{
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+#filter label{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+

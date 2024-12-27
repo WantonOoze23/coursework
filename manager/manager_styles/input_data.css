@@ -1,0 +1,8 @@
+#employee_add,
+#department_add,
+#performance_add,
+#position_add,
+#project_add,
+#vacation_add {
+    display: none; /* Спочатку всі форми приховані */
+}
