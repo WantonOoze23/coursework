@@ -7,20 +7,24 @@ require_once '../db_connection.php'; // Підключення до БД
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $project_name = $_POST['project_name'];
+    $project_name = $_POST['project_name'] ?? null;
     $description = $_POST['description'] ?? null;
-    $start_date = $_POST['start_date'];
-    $end_date = $_POST['end_date'];
+    $department = $_POST['department'] ?? null;
+    $emp_id = $_POST['emp_id'] ?? null;
 
-    $sql = "INSERT INTO projects (project_name, description, start_date, end_date) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-
-    if ($stmt->execute([$project_name, $description, $start_date, $end_date])) {
-        echo json_encode(['success' => true, 'message' => 'Проект успішно додано']);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Помилка при додаванні проекту']);
+    if (!$project_name || !$department || !$emp_id) {
+        echo json_encode(['success' => false, 'message' => 'Обов’язкові поля повинні бути заповнені!']);
+        exit;
     }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Неправильний метод запиту']);
+
+    $stmt = $conn->prepare("INSERT INTO projects (project_name, description, department, emp_id) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param('sssi', $project_name, $description, $department, $emp_id);
+
+    if ($stmt->execute()) {
+        echo json_encode(['success' => true, 'message' => 'Проєкт успішно додано!']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Помилка додавання: ' . $stmt->error]);
+    }
+    $stmt->close();
 }
 ?>
