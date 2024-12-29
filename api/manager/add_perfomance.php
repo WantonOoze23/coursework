@@ -7,21 +7,24 @@ require_once '../db_connection.php'; // Підключення до БД
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $employee_id = $_POST['employee_id'];
-    $performance_score = $_POST['performance_score'];
-    $performance_date = $_POST['performance_date'];
-    $comments = $_POST['comments'] ?? null;
+    $emp_id = $_POST['emp_id'] ?? null;
+    $date_review = $_POST['date_review'] ?? null;
+    $score = $_POST['score'] ?? null;
+    $comment = $_POST['comment'] ?? null;
 
-    $sql = "INSERT INTO performance (employee_id, performance_score, performance_date, comments) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-
-    if ($stmt->execute([$employee_id, $performance_score, $performance_date, $comments])) {
-        echo json_encode(['success' => true, 'message' => 'Продуктивність успішно додано']);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Помилка при додаванні продуктивності']);
+    if (!$emp_id || !$date_review || !$score) {
+        echo json_encode(['success' => false, 'message' => 'Обов’язкові поля повинні бути заповнені!']);
+        exit;
     }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Неправильний метод запиту']);
-}
 
+    $stmt = $conn->prepare("INSERT INTO performance (emp_id, date_review, score, comment) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param('isds', $emp_id, $date_review, $score, $comment);
+
+    if ($stmt->execute()) {
+        echo json_encode(['success' => true, 'message' => 'Продуктивність успішно додано!']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Помилка додавання: ' . $stmt->error]);
+    }
+    $stmt->close();
+}
 ?>

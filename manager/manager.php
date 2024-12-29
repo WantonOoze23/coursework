@@ -185,19 +185,75 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             </div>
 
             <div id="performance_add">
-                
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="emp_id">Співробітник:</label>
+                    <input type="text" id="emp_id" name="emp_id" required><br><br>
+                    
+                    <label for="date_review">Дата:</label>
+                    <input type="date" id="date_review" name="date_review" required><br><br>
+                    
+                    <label for="score">Оцінка:</label>
+                    <input type="number" id="score" name="score" required><br><br>
+                    
+                    <label for="comment">Коментар:</label>
+                    <input type="text" id="comment" name="comment"><br><br>
+                    
+                    <button type="submit">Додати продуктивність</button>
+                </form>
             </div>
 
             <div id="position_add">
-                
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="position">Назва посади:</label>
+                    <input type="text" id="position" name="position" required><br><br>
+                    
+                    <label for="description">Опис:</label>
+                    <input type="text" id="description" name="description"><br><br>
+    
+                    <label for="responsibilities">Обов’язки:</label>
+                    <input type="text" id="responsibilities" name="responsibilities"><br><br>
+                    
+                    <button type="submit">Додати посаду</button>
+                </form>
             </div>
 
             <div id="project_add">
-                
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="project_name">Назва проєкту:</label>
+                    <input type="text" id="project_name" name="project_name" required><br><br>
+
+                    <label for="project_description">Опис:</label>
+                    <input type="text" id="description" name="description"><br><br>
+
+                    <label for="dep_id">Підпорядковується:</label>
+                    <input type="text" id="department" name="department" required><br><br>
+
+                    <label for="emp_id">Голова проєкту:</label>
+                    <input type="text" id="emp_id" name="emp_id" required><br><br>
+
+                    <button type="submit">Додати проєкт</button>
+                </form>
             </div>
 
             <div id="vacation_add">
-                
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="type">Тип відпочинку</label>
+                    <input type="text" id="type" name="type" required><br><br>
+
+                    <label for="beginning">Дата початку:</label>
+                    <input type="date" id="beginning" name="beginning" required><br><br>
+                    
+                    <label for="end">Дата закінчення:</label>
+                    <input type="date" id="end" name="end" required><br><br>
+
+                    <label for="amount">Кількість днів:</label>
+                    <!--Кількість днів має підраховуватись та виводитись автоматично-->
+
+                    <label for="emp_id">Співробітник:</label>
+                    <input type="text" id="emp_id" name="emp_id" required><br><br>
+
+                    <button type="submit">Додати відпочинок</button>
+                </form>
                 
             </div>
             
