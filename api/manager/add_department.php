@@ -17,9 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $imagePath = null;
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = __DIR__ . '/../../images/departments/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true); // Створюємо папку, якщо її не існує
-        }
         $imagePath = $uploadDir . basename($_FILES['image']['name']);
         if (!move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
             echo json_encode(['success' => false, 'message' => 'Не вдалося завантажити фото.']);

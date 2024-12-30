@@ -182,7 +182,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <input type="number" id="emp_id" name="emp_id"><br><br>
 
                     <button type="submit">Додати відділ</button>
-                </form>
             </div>
 
             <div id="performance_add">

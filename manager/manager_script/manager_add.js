@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /*if (addPerformanceForm) {
+    if (addPerformanceForm) {
         addPerformanceForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
@@ -244,5 +244,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Не вдалося додати співробітника. Спробуйте ще раз.");
             }
         });
-    }*/
+    }
 });
