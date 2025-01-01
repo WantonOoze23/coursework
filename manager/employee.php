@@ -54,46 +54,14 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <button type="submit">Вийти</button>
             </form>
         </div>
-        
 
         <div class="choice">
-            <button class="view">Перегляд</button>
-            <button class="add">Додати</button>
+            <a href="manager.php"><button class="view">Перегляд</button></a>
+            <a href="manager.php"><button class="add">Додати</button></a>
         </div>
-
         
-        <div class="manager-content view">
-            <div id="filter">
-
-                <label>Фільтр:</label>
-                <select name="filter" id="filter">
-                    <option value="all">Всі</option>
-                    <option value="employees">Робітники</option>
-                    <option value="departments">Відділи</option>
-                    <option value="performance">Продуктивність</option>
-                    <option value="positions">Посади</option>
-                    <option value="projects">Проєкти</option>
-                </select>
-                <button type="submit">Фільтрувати</button>
-
-            </div>
-
-            <div id="output">
-
-            </div>
-
-        </div>
 
         <div class="manager-content add">
-        
-            <div class="choice">
-                <button id="employee">Робітник</button>
-                <button id="department">Відділ</button>
-                <button id="performance">Продуктивність</button>
-                <button id="position">Посади</button>
-                <button id="project">Проєкти</button>
-                <button id="vacation">Відпочинок</button>
-            </div>
 
             <div id="employee_add">
                 <h2>Додати співробітника</h2>
@@ -166,39 +134,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <button type="submit">Додати співробітника</button>
                 </form>
             </div>
-
-            <div id="department_add">
-                <form method="POST" enctype="multipart/form-data">
-                    <label for="name">Назва відділу:</label>
-                    <input type="text" id="department" name="department" required><br><br>
-                    
-                    <label for="description">Опис:</label>
-                    <input type="text" id="description" name="description"><br><br>
-                    
-                    <label for="image">Фото:</label>
-                    <input type="file" id="image" name="image"><br><br>
-
-                    <label for="emp_id">Керівник:</label>
-                    <input type="number" id="emp_id" name="emp_id"><br><br>
-
-                    <button type="submit">Додати відділ</button>
-            </div>
-
-            <div id="performance_add">
-                
-            </div>
-
-            <div id="position_add">
-                
-            </div>
-
-            <div id="project_add">
-                
-            </div>
-
-            <div id="vacation_add">
-                
-            </div>
             
         </div>
 
@@ -206,7 +141,5 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
     <script src="../script/navigation.js"></script>
     <script src="./manager_script/manager.js"></script>
-    <script src="./manager_script/manager_add.js"></script>
-    <script src="./manager_script/manager_get.js"></script>
 </body>
 </html>

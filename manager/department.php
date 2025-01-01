@@ -54,50 +54,13 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <button type="submit">Вийти</button>
             </form>
         </div>
-        
 
         <div class="choice">
-            <button class="view">Перегляд</button>
-            <button class="add">Додати</button>
-        </div>
-
-        
-        <div class="manager-content view">
-            <div id="filter">
-
-                <label>Фільтр:</label>
-                <select name="filter" id="filter">
-                    <option value="all">Всі</option>
-                    <option value="employees">Робітники</option>
-                    <option value="departments">Відділи</option>
-                    <option value="performance">Продуктивність</option>
-                    <option value="positions">Посади</option>
-                    <option value="projects">Проєкти</option>
-                </select>
-                <button type="submit">Фільтрувати</button>
-
-            </div>
-
-            <div id="output">
-
-            </div>
-
+            <a href="manager.php"><button class="view">Перегляд</button></a>
+            <a href="manager.php"><button class="add">Додати</button></a>
         </div>
 
         <div class="manager-content add">
-        
-            <div class="choice">
-                <button id="employee">Робітник</button>
-                <button id="department">Відділ</button>
-                <button id="performance">Продуктивність</button>
-                <button id="position">Посади</button>
-                <button id="project">Проєкти</button>
-                <button id="vacation">Відпочинок</button>
-            </div>
-
-            <div id="employee_add">
-                
-            </div>
 
             <div id="department_add">
                 <form method="POST" enctype="multipart/form-data">
@@ -114,24 +77,9 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <input type="number" id="emp_id" name="emp_id"><br><br>
 
                     <button type="submit">Додати відділ</button>
+                </form>
             </div>
 
-            <div id="performance_add">
-                
-            </div>
-
-            <div id="position_add">
-                
-            </div>
-
-            <div id="project_add">
-                
-            </div>
-
-            <div id="vacation_add">
-                
-            </div>
-            
         </div>
 
     </section>
