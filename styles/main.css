@@ -98,17 +98,32 @@ ul{
     border: none; /* Без границ */
     font-size: 2em; /* Размер шрифта для кнопки */
     cursor: pointer; /* Указатель при наведении */
-    color: #34495e; /* Цвет кнопки */
+    color: var(--light-color); /* Цвет кнопки */
 }
 
 .wrapper{
-    min-height: 1000px;
+    min-height: fit-content;
     width: 95%;
     margin: auto;
     background-color: var(--wrapper-bg-color);
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     border-radius: 25px;
+    padding-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    overflow: hidden; /* Скрываем переполнение */
+    transition: transform 0.3s ease; /* Добавляем плавный переход */
+    display: flex; /* Используем flexbox для выравнивания блоков */
+    flex-wrap: wrap; /* Переносим блоки на новую строку при необходимости */
+    justify-content: space-between; /* Равномерно распределяем блоки */
+}
+
+.wrapper-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: var(--dark-grey-color);
 }
 
 .filter{
@@ -121,9 +136,42 @@ footer{
     margin: 0;
     min-height: 200px;
     width: 100%;
-    margin-top: 50px;
     padding-top: 100px;
     text-align: center;
+}
+
+
+.main_screen_info {
+    width: calc(50% - 40px); /* Устанавливаем ширину с учетом отступов */
+    margin: 20px; /* Добавляем отступы */
+    background-color: var(--light-color);
+    padding: 20px; /* Увеличиваем внутренние отступы */
+    border-radius: 15px; /* Уменьшаем радиус скругления */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    transition: transform 0.3s ease; /* Добавляем плавный переход */
+    box-sizing: border-box; /* Включаем отступы и границы в ширину */
+}
+
+.main_screen_info:hover {
+    transform: scale(1.02); /* Увеличиваем размер при наведении */
+}
+
+.main_screen_info h1, .main_screen_info h3 {
+    text-align: center; /* Центрируем заголовки */
+}
+
+.main_screen_info p, .main_screen_info ul {
+    font-size: 1.2em; /* Увеличиваем размер шрифта */
+    color: var(--dark-grey-color); /* Устанавливаем цвет текста */
+    line-height: 1.6; /* Увеличиваем межстрочный интервал */
+}
+
+.main_screen_info ul {
+    padding-left: 20px; /* Добавляем отступ слева для списка */
+}
+
+.main_screen_info ul li {
+    margin-bottom: 10px; /* Добавляем отступы между элементами списка */
 }
 
 footer a{

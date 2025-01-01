@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showAddForm(vacationAdd); // Відображаємо форму для Відпочинку
         setActiveButton(vacationButton); // Підсвічуємо кнопку Відпочинок
     });
-
+/*
     // Додавання функціоналу для форми співробітника
     const addEmployeeForm = document.querySelector("#employee_add form");
     const addDepartmentForm = document.querySelector("#department_add form");
@@ -244,5 +244,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Не вдалося додати співробітника. Спробуйте ще раз.");
             }
         });
-    }
+    }*/
 });
