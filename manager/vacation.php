@@ -75,7 +75,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <input type="date" id="end" name="end" required><br><br>
 
                     <label for="amount">Кількість днів:</label>
-                    <!--Кількість днів має підраховуватись та виводитись автоматично-->
+                    <input type="text" id="amount" name="amount" readonly><br><br>
 
                     <label for="emp_id">Співробітник:</label>
                     <input type="text" id="emp_id" name="emp_id" required><br><br>
@@ -90,8 +90,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </section>
 
     <script src="../script/navigation.js"></script>
-    <script src="./manager_script/manager.js"></script>
-    <script src="./manager_script/manager_add.js"></script>
-    <script src="./manager_script/manager_get.js"></script>
+    <script src="./manager_script/vacation_add.js"></script>
 </body>
 </html>

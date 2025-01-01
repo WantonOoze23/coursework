@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt = $conn->prepare("INSERT INTO positions (position, description, responsibilities) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO position (position, description, responsibilities) VALUES (?, ?, ?)");
     $stmt->bind_param('sss', $position, $description, $responsibilities);
 
     if ($stmt->execute()) {

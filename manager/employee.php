@@ -140,6 +140,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </section>
 
     <script src="../script/navigation.js"></script>
-    <script src="./manager_script/manager.js"></script>
+    <script src="manager_script/employee_add.js"></script>
 </body>
 </html>

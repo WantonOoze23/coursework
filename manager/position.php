@@ -83,8 +83,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </section>
 
     <script src="../script/navigation.js"></script>
-    <script src="./manager_script/manager.js"></script>
-    <script src="./manager_script/manager_add.js"></script>
-    <script src="./manager_script/manager_get.js"></script>
+    <script src="./manager_script/position_add.js"></script>
 </body>
 </html>

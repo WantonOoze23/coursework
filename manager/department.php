@@ -64,7 +64,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
             <div id="department_add">
                 <form method="POST" enctype="multipart/form-data">
-                    <label for="name">Назва відділу:</label>
+                    <label for="department">Назва відділу:</label>
                     <input type="text" id="department" name="department" required><br><br>
                     
                     <label for="description">Опис:</label>
@@ -85,8 +85,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </section>
 
     <script src="../script/navigation.js"></script>
-    <script src="./manager_script/manager.js"></script>
-    <script src="./manager_script/manager_add.js"></script>
-    <script src="./manager_script/manager_get.js"></script>
+    <script src="manager_script/department_add.js"></script>
 </body>
 </html>

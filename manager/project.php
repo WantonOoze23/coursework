@@ -55,6 +55,11 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             </form>
         </div>
 
+        <div class="choice">
+            <a href="manager.php"><button class="view">Перегляд</button></a>
+            <a href="manager.php"><button class="add">Додати</button></a>
+        </div>
+
         <div class="manager-content add">
         
 
@@ -64,10 +69,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <input type="text" id="project_name" name="project_name" required><br><br>
 
                     <label for="project_description">Опис:</label>
-                    <input type="text" id="description" name="description"><br><br>
+                    <input type="text" id="project_description" name="project_description"><br><br>
 
                     <label for="dep_id">Підпорядковується:</label>
-                    <input type="text" id="department" name="department" required><br><br>
+                    <input type="text" id="dep_id" name="dep_id" required><br><br>
 
                     <label for="emp_id">Голова проєкту:</label>
                     <input type="text" id="emp_id" name="emp_id" required><br><br>
@@ -81,8 +86,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </section>
 
     <script src="../script/navigation.js"></script>
-    <script src="./manager_script/manager.js"></script>
-    <script src="./manager_script/manager_add.js"></script>
-    <script src="./manager_script/manager_get.js"></script>
+    <script src="./manager_script/project_add.js"></script>
 </body>
 </html>

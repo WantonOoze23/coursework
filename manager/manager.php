@@ -39,7 +39,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <li><a href="../performance.html">Продуктивність</a></li>
                 <li><a href="../positions.html">Посади</a></li>
                 <li><a href="../projects.html">Проєкти</a></li>
-                <li><a href="../manager/login.html">Кабінет</a></li>
+                <li><a href="../manager/manager.php">Кабінет</a></li>
             </ul>
         </div>
     </section>
@@ -101,7 +101,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
     <script src="../script/navigation.js"></script>
     <script src="./manager_script/manager.js"></script>
-    <script src="./manager_script/manager_add.js"></script>
     <script src="./manager_script/manager_get.js"></script>
 </body>
 </html>

@@ -2,13 +2,11 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require_once '../db_connection.php'; // Підключення до БД
+require_once '../db_connection.php'; // Підключення до бази даних
 
 header('Content-Type: application/json');
 
-// Перевірка, чи надійшли дані методом POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Зчитування даних з POST-запиту
     $name = $_POST['name'] ?? null;
     $surname = $_POST['surname'] ?? null;
     $middle_name = $_POST['middle_name'] ?? null;
@@ -18,43 +16,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? null;
     $address = $_POST['address'] ?? null;
     $position = $_POST['position'] ?? null;
-    $dep_id = $_POST['dep_id'] ?? null;
+    $dep_id = !empty($_POST['dep_id']) ? (int)$_POST['dep_id'] : null;
     $date = $_POST['date'] ?? null;
     $salary = $_POST['salary'] ?? null;
     $status = $_POST['status'] ?? null;
-    $beloning_dep = $_POST['beloning_dep'] ?? null;
+    $beloning_dep = !empty($_POST['beloning_dep']) ? (int)$_POST['beloning_dep'] : null;
 
-    // Перевірка завантаження зображення
-    $imagePath = null;
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    $imagePath = '';
+    if (!empty($_FILES['image']['name'])) {
         $uploadDir = __DIR__ . '/../../images/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true); // Створюємо папку, якщо її не існує
-        }
-        $imagePath = $uploadDir . basename($_FILES['image']['name']);
-        if (!move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
-            echo json_encode(['success' => false, 'message' => 'Не вдалося завантажити фото.']);
+        $imageName = uniqid() . '_' . basename($_FILES['image']['name']);
+        $targetFile = $uploadDir . $imageName;
+
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
+            $imagePath = '/images/' . $imageName;
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Не вдалося завантажити зображення.']);
             exit;
         }
-        $imagePath = '/images/' . basename($_FILES['image']['name']); // Зберігаємо відносний шлях
     }
 
-    // Валідація даних
-    if (!$name || !$surname || !$dob || !$phone || !$email || !$salary) {
-        echo json_encode(['success' => false, 'message' => 'Будь ласка, заповніть всі обов’язкові поля.']);
-        exit;
-    }
-
-    // SQL-запит для додавання співробітника
-    $stmt = $conn->prepare("
-        INSERT INTO employees (name, surname, middle_name, dob, sex, phone, email, address, position, dep_id, date, salary, status, image, beloning_dep)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ");
+    $stmt = $conn->prepare("INSERT INTO employees (name, surname, middle_name, dob, sex, phone, email, address, position, dep_id, date, salary, status, image, beloning_dep) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     if ($stmt) {
-        // Прив'язка параметрів
         $stmt->bind_param(
-            'sssssssssssdsss',
+            'sssssssssisdsss',
             $name,
             $surname,
             $middle_name,
@@ -72,18 +59,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $beloning_dep
         );
 
-        // Виконання запиту
         if ($stmt->execute()) {
-            echo json_encode(['success' => true, 'message' => 'Співробітника успішно додано!']);
+            echo json_encode(['success' => true, 'message' => 'Співробітника додано успішно.']);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Не вдалося додати співробітника: ' . $stmt->error]);
+            echo json_encode(['success' => false, 'message' => 'Помилка при виконанні запиту: ' . $stmt->error]);
         }
 
         $stmt->close();
     } else {
-        echo json_encode(['success' => false, 'message' => 'Помилка SQL: ' . $conn->error]);
+        echo json_encode(['success' => false, 'message' => 'Не вдалося підготувати запит: ' . $conn->error]);
     }
+
+    $conn->close();
 } else {
-    echo json_encode(['success' => false, 'message' => 'Невірний метод запиту.']);
+    echo json_encode(['success' => false, 'message' => 'Неприпустимий метод запиту.']);
 }
+
 ?>
