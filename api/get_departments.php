@@ -9,7 +9,22 @@ if ($conn->connect_error) {
 }
 
 // Выполнение запроса
-$query = "SELECT * FROM department";
+$query = "
+    SELECT 
+        d.department, 
+        d.description, 
+        d.image, 
+        e.name AS head_name, 
+        e.surname AS head_surname,
+        e.emp_id AS head_emp_id
+    FROM 
+        department d
+    LEFT JOIN 
+        employees e 
+    ON 
+        d.emp_id = e.emp_id
+";
+
 $result = $conn->query($query);
 if (!$result) {
     die("Ошибка SQL-запроса: " . $conn->error);

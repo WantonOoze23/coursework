@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p><strong>Email:</strong> <a href="mailto:${employee.email}">${employee.email}</a></p>
                     <p><strong>Адреса:</strong> ${employee.address}</p>
                     <p><strong>Зарплата:</strong> ${employee.salary} грн</p>
-                    ${employee.dep_id ? `<p><strong>Голова:</strong> ${employee.dep_id}</p>` : ''}
+                    ${employee.department_name ? `<p><strong>Відділ:</strong> ${employee.department_name}</p>` : ''}
                     ${employee.beloning_dep ? `<p><strong>Підпорядковується:</strong> ${employee.beloning_dep}</p>` : ''}
                 `;
 

@@ -21,7 +21,12 @@ if ($emp_id <= 0) {
 $data = [];
 
 // Отримання даних з таблиці employees
-$sql_employee = "SELECT * FROM employees WHERE emp_id = ?";
+$sql_employee = "
+    SELECT e.*, d.department AS department_name 
+    FROM employees e
+    LEFT JOIN department d ON e.dep_id = d.dep_id
+    WHERE e.emp_id = ?
+";
 $stmt_employee = $conn->prepare($sql_employee);
 if ($stmt_employee === false) {
     die("Ошибка подготовки запроса: " . $conn->error);
@@ -36,6 +41,7 @@ if ($result_employee->num_rows > 0) {
     echo json_encode(["error" => "Employee not found"]);
     exit();
 }
+
 
 // Отримання даних з таблиці vacation
 $sql_vacation = "SELECT * FROM vacation WHERE emp_id = ?";

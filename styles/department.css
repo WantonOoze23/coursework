@@ -22,6 +22,19 @@
     color: #333;
 }
 
+.departmentCard a, .departmentCard a:visited, a:focus, a:active, a:link {
+    outline: none; /* Убирает контур при фокусе */
+    text-decoration: none; /* Убирает подчеркивание при наведении */
+    color: inherit; 
+}
+
+.department-card a {
+    color: var(--orange-leather);
+}
+
+.department-card a:hover {
+    color: var(--footer-a-color-hover);
+}
 
 @media (max-width: 1199px) and (min-width: 768px) {
     .department-card {

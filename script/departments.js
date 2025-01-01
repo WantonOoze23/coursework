@@ -18,18 +18,23 @@ document.addEventListener('DOMContentLoaded', function () {
         departments.forEach(department => {
             const departmentCard = document.createElement('div');
             departmentCard.classList.add('department-card');
-
-            
+        
             departmentCard.innerHTML = `
                 <img src="${department.image}">
                 <h3><strong>Назва:</strong> ${department.department}</h3>
                 <p><strong>Опис:</strong> ${department.description}</p>
-                <p><strong>Голова:</strong> ${department.emp_id}</p>
+                <p>
+                    <strong>Голова:</strong> 
+                    <a href="/person/person.html?emp_id=${department.head_emp_id}">
+                        <strong>${department.head_name || 'Невідомо'} ${department.head_surname || 'Невідомо'}</strong>
+                    </a>
+                </p>
             `;
-
-            // Добавляем карточку сотрудника в список
+        
+            // Додаємо карточку в контейнер
             departmentList.appendChild(departmentCard);
         });
+        
     })
     .catch(error => {
         console.error('Ошибка:', error);

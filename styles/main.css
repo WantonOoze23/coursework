@@ -197,6 +197,10 @@ footer a:hover{
     .nav_menu.active {
         display: block; /* Показує меню, коли воно активне */
     }
+    .main_screen_info {
+        width: calc(100% - 40px); /* Устанавливаем ширину с учетом отступов */
+        
+    }
 }
 
 
